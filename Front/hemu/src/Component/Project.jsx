@@ -27,7 +27,7 @@ const Projects = () => {
   ];
 
   return (
-    <section className="container mx-auto px-4 mt-20">
+    <section id="project"  className="container mx-auto px-4 mt-20">
       <div className="max-w-2xl  flex flex-col ">
         <h2 className="text-orange-600 uppercase tracking-widest text-xs font-semibold">
           Featured Projects

@@ -28,7 +28,7 @@ function App() {
     <>
       <Header />
 
-      <main className="p-6 md:p-8 mt-20">
+      <main id="home" className="p-6 md:p-8 mt-20">
         {/* Hero Section */}
         <div className="flex flex-col-reverse md:flex-row gap-10 md:gap-20 items-center justify-center">
           {/* Profile Image */}

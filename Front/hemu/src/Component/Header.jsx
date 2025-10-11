@@ -20,7 +20,7 @@ export const Header = () => {
 
         {/* Middle Section - Nav Links (Hidden on small screens) */}
         <nav className="hidden md:flex gap-6 items-center font-medium">
-          <a href="/" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
+          <a href="#home" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
             Home
           </a>
           <a href="#about" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
@@ -95,7 +95,7 @@ export const Header = () => {
         </button>
 
         {/* Sidebar Links */}
-        <a href="/" onClick={() => setHam(false)} className="text-lg font-medium">
+        <a href="#home" onClick={() => setHam(false)} className="text-lg font-medium">
           Home
         </a>
         <a href="#about" onClick={() => setHam(false)} className="text-lg font-medium">

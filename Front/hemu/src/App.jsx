@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Header } from "./Component/Header";
 import { ThemeContext } from "./Context/context";
-import "./app.css";
+import "./App.css";
 import Projects from "./Component/Project";
 function App() {
   const { theme } = useContext(ThemeContext);

@@ -75,7 +75,7 @@ const Contact = () => {
     };
 
 
-    console.log(formData);
+    // console.log(formData);
     
     return (
         <div id="contact" className="container mx-auto px-4 mt-10 flex flex-col lg:flex-row items-center lg:items-start gap-10">

@@ -7,18 +7,36 @@ import Services from "./Component/Service";
 import Testimonial from "./Component/tesimonial";
 import ProjectMet from "./Component/ProjectMetrix";
 import Ques from "./Component/Questions";
-
 import Contact from "./Component/Contact";
 import Footer from "./Component/Footer";
+
 function App() {
   const { theme } = useContext(ThemeContext);
-
+  const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showHeader,setShowheader]=useState(false);
   useEffect(() => {
     document.body.style.backgroundColor = theme === "dark" ? "#111" : "#f5f5f5";
     document.body.style.color = theme === "dark" ? "#fff" : "#000";
   }, [theme]);
 
-  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >500) setShowTopBtn(true);
+      else setShowTopBtn(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // useEffect(()=>{
+  //   const handleScroll=()=>{
+  //     if(window.scrollX) setShowheader(true);
+  //     else setShowheader(false)
+  //   };
+  //   window.addEventListener("scroll",handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+
+  // })
 
   const companyLogos = [
     "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo7-dark.png",
@@ -33,10 +51,32 @@ function App() {
     "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo5-dark.png",
   ];
 
-
   return (
     <>
-      <Header />
+      {/* Back to Top Button */}
+      {showTopBtn && (
+        <div className="fixed bottom-5 right-5 z-50">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="bg-orange-600 hover:bg-orange-700 text-white p-3 rounded-full shadow-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              fill="currentColor"
+              className="bi bi-caret-up-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"></path>
+            </svg>
+          </button>
+        </div>
+      )}
+      {
+        // showHeader&&
+        <Header />
+      }
 
       {/* HERO SECTION */}
       <main id="home" className="p-6 md:p-8 mt-20">
@@ -132,43 +172,42 @@ function App() {
 
       {/* TESTIMONIAL SECTION */}
       <section
-        className={`mt-10 rounded-full ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-25 relative`}
+        className={`mt-10 rounded-full ${
+          theme === "dark" ? "dark:bg-gray-800" : "bg-white"
+        } py-25 relative`}
       >
-      <Testimonial/>
+        <Testimonial />
       </section>
 
       {/* Project metrix */}
-       <section
+      <section
         id="Met"
         className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
       >
-        <ProjectMet/>
+        <ProjectMet />
       </section>
 
       {/* Ques */}
-       <section
+      <section
         id="services"
-        className={` rounded-3xl ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20`}
-
+        className={`rounded-3xl ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20`}
       >
-        <Ques/>
+        <Ques />
       </section>
-
 
       {/* Section Contact */}
-
       <section
-        id="Met"
+        id="contact"
         className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
       >
-        <Contact/>
+        <Contact />
       </section>
 
+      {/* Footer */}
       <section
-        id="Met"
         className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
       >
-        <Footer/>
+        <Footer />
       </section>
     </>
   );

@@ -5,10 +5,13 @@ import "./App.css";
 import Projects from "./Component/Project";
 import Services from "./Component/Service";
 import Testimonial from "./Component/tesimonial";
+import ProjectMet from "./Component/ProjectMetrix";
+import Ques from "./Component/Questions";
+
+import Contact from "./Component/Contact";
+import Footer from "./Component/Footer";
 function App() {
   const { theme } = useContext(ThemeContext);
-  const [idx, setIdx] = useState(0);
-  const [animation, setAnimation] = useState(true);
 
   useEffect(() => {
     document.body.style.backgroundColor = theme === "dark" ? "#111" : "#f5f5f5";
@@ -132,6 +135,40 @@ function App() {
         className={`mt-10 rounded-full ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-25 relative`}
       >
       <Testimonial/>
+      </section>
+
+      {/* Project metrix */}
+       <section
+        id="Met"
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+      >
+        <ProjectMet/>
+      </section>
+
+      {/* Ques */}
+       <section
+        id="services"
+        className={` rounded-3xl ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20`}
+
+      >
+        <Ques/>
+      </section>
+
+
+      {/* Section Contact */}
+
+      <section
+        id="Met"
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+      >
+        <Contact/>
+      </section>
+
+      <section
+        id="Met"
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+      >
+        <Footer/>
       </section>
     </>
   );

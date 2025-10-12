@@ -29,7 +29,7 @@ const Ques = () => {
             <div className="container flex flex-col pl-20  md:flex-row  mx-auto px-4 mt-15 gap-15">
                 <div className="flex ">
                     <div className="max-w-2xl">
-                        <h2 className="text-white uppercase tracking-widest text-4xl font-bold">
+                        <h2 className=" uppercase tracking-widest text-4xl font-bold">
                             Frequently Asked Questions.
                         </h2>
                         <p className="m-0 mt-2 md:text-bold text-body-emphasis text-balance text-1lg leading-tight tracking-tight fw-medium">

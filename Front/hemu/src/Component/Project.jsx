@@ -1,8 +1,9 @@
-import { ThemeContext } from "../Context/context";
 import { useContext } from "react";
-const Projects = () => {
+import { ThemeContext } from "../Context/context";
 
-    const {theme}=useContext(ThemeContext);
+const Projects = () => {
+  const { theme } = useContext(ThemeContext);
+
   const projects = [
     {
       img: "https://tigmatemplate.me/uxoria/assets/img/bg/project1.jpg",
@@ -10,12 +11,12 @@ const Projects = () => {
       desc: "Responsive shopping experience with dynamic filters, modular components, and clean UI."
     },
     {
-      img: "	https://tigmatemplate.me/uxoria/assets/img/bg/project2.jpg",
+      img: "https://tigmatemplate.me/uxoria/assets/img/bg/project2.jpg",
       title: "SaaS Dashboard Interface System",
       desc: "Built a scalable interface with custom charts, microinteractions, and dark/light mode."
     },
     {
-      img: "	https://tigmatemplate.me/uxoria/assets/img/bg/project3.jpg",
+      img: "https://tigmatemplate.me/uxoria/assets/img/bg/project3.jpg",
       title: "Mobile-First Portfolio Grid",
       desc: "Designed a grid layout optimized for mobile scroll behavior, media-heavy performance."
     },
@@ -26,53 +27,93 @@ const Projects = () => {
     }
   ];
 
+  const skills = {
+    Frontend: [
+      { name: "HTML", logo: "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" },
+      { name: "CSS", logo: "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" },
+      { name: "JavaScript", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" },
+      { name: "React JS", logo: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg" },
+      { name: "Redux", logo: "https://upload.wikimedia.org/wikipedia/commons/4/47/React.svg" },
+      { name: "Tailwind CSS", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg" },
+      { name: "Bootstrap", logo: "https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" },
+    ],
+    Backend: [
+      { name: "Node JS", logo: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" },
+      { name: "Express JS", logo: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png" },
+      { name: "MySQL", logo: "https://www.interviewbit.com/blog/wp-content/uploads/2021/10/MySQL-550x367.png" },
+      { name: "MongoDB", logo: "https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" },
+    ],
+    Languages: [
+      { name: "C++", logo: "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" },
+      { name: "Java", logo: "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" },
+      { name: "Python", logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" },
+      { name: "JavaScript", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" },
+    ],
+    Tools: [
+      { name: "Git", logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" },
+      { name: "GitHub", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" },
+      { name: "VS Code", logo: "https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg" },
+      { name: "Netlify", logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/Netlify_logo_%282%29.svg" },
+    ],
+  };
+
   return (
-    <section id="project"  className="container mx-auto px-4 mt-20">
-      <div className="max-w-2xl  flex flex-col ">
-        <h2 className="text-orange-600 uppercase tracking-widest text-xs font-semibold">
-          Featured Projects
-        </h2>
-        <p className="mt-2 text-3xl md:text-5xl font-medium leading-tight">
-          Showcasing Creativity And Precision.
-        </p>
-        <p className={`mt-5 text-lg md:text-xl  ${theme==="dark"?"dark:text-gray-300":"text-black"}  leading-8`}>
-          A curated selection of UX and web builds that highlight problem-solving, design strategy, and full-stack agility across diverse industries and audiences.
-        </p>
-      </div>
+    <>
+      {/* Projects Section */}
+      <section id="project" className="container mx-auto px-4 mt-20">
+        <div className="max-w-2xl flex flex-col mx-auto mb-12">
+          <h2 className="text-3xl md:text-5xl font-medium text-center pb-2 border-b border-gray-500">PROJECTS</h2>
+          <p className={`mt-3 text-lg md:text-xl text-center leading-8 ${theme === "dark" ? "text-gray-300" : "text-black"}`}>
+            A collection of my projects showcasing technical skills and practical experience.
+          </p>
+        </div>
 
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map((project, idx) => (
-          <div key={idx} className="relative group">
-            <div className="overflow-hidden rounded-xl">
-              <img
-                src={project.img}
-                alt={project.title}
-                className="w-full h-64 md:h-72 object-cover transform group-hover:scale-105 transition-transform duration-500"
-              />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {projects.map((proj, idx) => (
+            <div key={idx} className="bg-gray-100 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:scale-105 transform transition-transform duration-300">
+              <img src={proj.img} alt={proj.title} className="w-full h-48 object-cover" loading="lazy"/>
+              <div className="p-4">
+                <h3 className="text-xl font-semibold mb-2">{proj.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">{proj.desc}</p>
+              </div>
             </div>
-            <a
-              href="#"
-              className={`mt-4 block text-xl font-medium ${theme==="dark"?"dark:text-gray-300":"text-black"} hover:text-orange-600 transition-colors`}
-            >
-              {project.title}
-            </a>
-            <p className={`mt-2 ${theme==="dark"?"dark:text-gray-300":"text-black"}text-base leading-7`}>
-              {project.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="text-center mt-8">
-        <a
-          href="#"
-          className="inline-flex items-center px-6 py-2 bg-orange-600 text-white rounded-full text-lg font-medium hover:bg-orange-700 transition-all"
-        >
-          Show more
-          <span className="ml-2">→</span>
-        </a>
-      </div>
-    </section>
+      {/* Skills Section */}
+      <section id="skill" className="py-24 px-4 md:px-20 lg:px-40">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Skills</h2>
+          <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
+          <p className="text-gray-500 dark:text-gray-300 mt-4 text-lg font-medium">
+            A collection of my technical skills and expertise honed through various projects and experiences
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-6 justify-center">
+          {Object.keys(skills).map((category) => (
+            <div
+              key={category}
+              className="bg-gray-100 dark:bg-gray-900 backdrop-blur-md px-6 py-8 rounded-2xl border border-gray-300 dark:border-gray-700 shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] w-full sm:w-[45%] lg:w-[30%]"
+            >
+              <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-300 mb-4 text-center">{category}</h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                {skills[category].map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="flex flex-col items-center justify-center space-y-1 border-2 border-gray-200 dark:border-gray-700 rounded-3xl py-3 px-2 text-center hover:scale-105 transition-transform"
+                  >
+                    <img src={skill.logo} alt={skill.name} className="w-10 h-10 object-contain"/>
+                    <span className="text-xs sm:text-sm text-gray-700 dark:text-gray-300">{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </>
   );
 };
 

@@ -20,16 +20,25 @@ export const Header = () => {
 
         {/* Middle Section - Nav Links (Hidden on small screens) */}
         <nav className="hidden md:flex gap-6 items-center font-medium">
-          <a href="#home" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
+          <a href="#home" onClick={() => setHam(false)} className="text-lg font-medium">
             Home
           </a>
-          <a href="#about" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
+          <a href="#about" onClick={() => setHam(false)} className="text-lg font-medium">
             About
           </a>
-          <a href="#project" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
+          <a href="#skill" onClick={() => setHam(false)} className="text-lg font-medium">
+            Skill
+          </a>
+          <a href="#project" onClick={() => setHam(false)} className="text-lg font-medium">
             Project
           </a>
-          <a href="#service" style={{ color: theme === "dark" ? "#fff" : "#000" }}>
+          <a href="#edu" onClick={() => setHam(false)} className="text-lg font-medium">
+            Eduction
+          </a>
+          <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
+            Exprience
+          </a>
+          <a href="#service" onClick={() => setHam(false)} className="text-lg font-medium">
             Services
           </a>
           <a
@@ -84,7 +93,7 @@ export const Header = () => {
       <div
         className={`fixed top-0 right-0 h-full w-2/3 bg-white dark:bg-black shadow-2xl transform transition-all duration-300 p-6 flex flex-col gap-6 md:hidden rounded-l-xl z-50
           ${ham ? "translate-x-0 opacity-100" : "translate-x-full opacity-0 pointer-events-none"}`}
-        style={{ color: theme === "dark" ? "#fff" : "#000" ,backgroundColor:theme==="dark"?"black":"white"}}
+        style={{ color: theme === "dark" ? "#fff" : "#000", backgroundColor: theme === "dark" ? "black" : "white" }}
       >
         {/* Close button inside sidebar */}
         <button
@@ -101,8 +110,17 @@ export const Header = () => {
         <a href="#about" onClick={() => setHam(false)} className="text-lg font-medium">
           About
         </a>
+        <a href="#skill" onClick={() => setHam(false)} className="text-lg font-medium">
+          Skill
+        </a>
         <a href="#project" onClick={() => setHam(false)} className="text-lg font-medium">
           Project
+        </a>
+        <a href="#edu" onClick={() => setHam(false)} className="text-lg font-medium">
+          Eduction
+        </a>
+        <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
+          Exprience
         </a>
         <a href="#service" onClick={() => setHam(false)} className="text-lg font-medium">
           Services

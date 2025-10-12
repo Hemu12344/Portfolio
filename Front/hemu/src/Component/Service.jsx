@@ -30,7 +30,7 @@ const Services=()=>{
   ]
     return(
         <>
-        <div id="service" className="container mx-auto px-4 mt-15">
+        <div id="service" className="container mx-auto px-4">
           <div className="flex justify-center md:text-center">
             <div className="max-w-2xl">
               <h2 className="text-orange-600 uppercase tracking-widest text-xs font-semibold">

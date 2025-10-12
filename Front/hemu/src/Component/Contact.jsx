@@ -86,7 +86,10 @@ const Contact = () => {
                         Get In Touch
                     </h2>
                     <p className="mt-2 text-5xl font-medium leading-tight tracking-tight">
-                        I'm Here To Help You Succeed.
+                        Connect With Me 🚀
+                    </p>
+                    <p className="mt-2 text-lg font-medium leading-tight tracking-tight">
+                        I’d love to hear from you—reach out for any opportunities or questions!
                     </p>
                 </div>
 

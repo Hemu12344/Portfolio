@@ -10,6 +10,8 @@ import Ques from "./Component/Questions";
 import Contact from "./Component/Contact";
 import Footer from "./Component/Footer";
 import Hero from "./Component/Hero";
+import Experience from "./Component/Exprience";
+import Eduction from "./Component/Edu";
 function App() {
   const { theme } = useContext(ThemeContext);
   const [showTopBtn, setShowTopBtn] = useState(false);
@@ -85,15 +87,30 @@ function App() {
       {/* PROJECTS SECTION */}
       <section
         id="projects"
-        className={`${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20`}
+        className={`${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20 rounded-3xl`}
       >
         <Projects />
       </section>
 
+      {/* Exprence */}
+       <section
+        id="Met"
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+      >
+        <Experience/>
+      </section>
+
+      {/* Eductioin */}
+      <section
+        id="Met"
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+      >
+        <Eduction/>
+      </section>
       {/* SERVICES SECTION */}
       <section
         id="services"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+        className={`${theme === "dark" ? "text-white" : "bg-white"} py-1`}
       >
         <Services />
       </section>

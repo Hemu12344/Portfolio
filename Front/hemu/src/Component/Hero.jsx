@@ -61,7 +61,7 @@ const Hero = () => {
                                 href="#contact"
                                 className="px-6 py-2 rounded-full bg-orange-700 text-white hover:bg-orange-800 transition-all duration-300"
                             >
-                                Contact Me
+                                Hire Me
                             </a>
                         </div>
                     </div>

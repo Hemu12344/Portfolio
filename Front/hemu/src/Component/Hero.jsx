@@ -24,7 +24,7 @@ const Hero = () => {
                 <div className="flex flex-col-reverse md:flex-row gap-10 md:gap-20 items-center justify-center">
                     <div className="bg-green-500 md:mt-0 mt-20 p-5 rounded-full hover:scale-90 cursor-pointer transition-all duration-300">
                         <img
-                            src="https://tigmatemplate.me/uxoria/assets/img/bg/home1.jpg"
+                            src="./MEFORWEB.jpg"
                             alt="Owner-img"
                             className="w-80 h-80 md:w-72 md:h-72 object-cover rounded-full"
                         />

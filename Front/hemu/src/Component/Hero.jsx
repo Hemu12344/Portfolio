@@ -3,19 +3,19 @@ import { ThemeContext } from "../Context/context";
 const Hero = () => {
 
     const { theme } = useContext(ThemeContext);
-    
+
     const companyLogos = [
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo7-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo6-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo8-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo9-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo10-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo1-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo2-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo3-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo4-dark.png",
-    "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo5-dark.png",
-  ];
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo7-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo6-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo8-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo9-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo10-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo1-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo2-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo3-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo4-dark.png",
+        "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo5-dark.png",
+    ];
     return (
 
         <>
@@ -24,10 +24,11 @@ const Hero = () => {
                 <div className="flex flex-col-reverse md:flex-row gap-10 md:gap-20 items-center justify-center">
                     <div className="bg-green-500 md:mt-0 mt-20 p-5 rounded-full hover:scale-90 cursor-pointer transition-all duration-300">
                         <img
-                            src="./MEFORWEB.jpg"
+                            src="https://raw.githubusercontent.com/Hemu12344/Portfolio/84beb15dea9153b6e55099a48caaa3860b6fbf9c/Front/hemu/MEFORWEB.jpg"
                             alt="Owner-img"
                             className="w-80 h-80 md:w-72 md:h-72 object-cover rounded-full"
                         />
+
                     </div>
 
                     <div className="flex flex-col gap-5 text-center md:text-left max-w-xl">

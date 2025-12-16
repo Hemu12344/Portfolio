@@ -9,10 +9,13 @@ const app = express();
 // ✅ Middlewares
 app.use(express.json());
 
-// ✅ CORS (Vite frontend)
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://hemuP.netlify.app",
+];
 app.use(
   cors({
-    origin:"https://hemuP.netlify.app/admin"||"https://hemuP.netlify.app"||"http://localhost:5173",
+    origin:allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

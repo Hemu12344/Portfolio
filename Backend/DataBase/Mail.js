@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const env = require('dotenv').config();
 const URI=process.env.MONGO_URI
-mongoose.connect("mongodb+srv://HarshAgr:Harsh1234@blogsite.zrwnljt.mongodb.net/MailDB")
+mongoose.connect(URI||"mongodb+srv:HarshAgr:Harsh1234@blogsite.zrwnljt.mongodb.net/MailDB")
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 

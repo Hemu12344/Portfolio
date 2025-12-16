@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,7 +17,7 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
-  // ✅ Dynamic border colors
+  // ✅ Dynamic borders
   useEffect(() => {
     const newClasses = {};
     Object.keys(formData).forEach((field) => {
@@ -30,7 +33,6 @@ const Contact = () => {
     setErrors({ ...errors, [e.target.id]: "" });
   };
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSuccess("");
@@ -38,7 +40,7 @@ const Contact = () => {
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key].trim()) {
-        newErrors[key] = `${key.charAt(0).toUpperCase() + key.slice(1)} is required`;
+        newErrors[key] = `${key[0].toUpperCase() + key.slice(1)} is required`;
       }
     });
 
@@ -50,17 +52,14 @@ const Contact = () => {
     try {
       setLoading(true);
 
-      const response = await axios.post(
-        `https://portfolio-backend-02h4.onrender.com/Check`||"http://localhost:5000/Check",
+      const res = await axios.post(
+        `${API_URL}/Check`,
         formData,
         { headers: { "Content-Type": "application/json" } }
       );
 
-      setSuccess(response.data.message);
+      setSuccess(res.data.message);
 
-      setTimeout(()=>{
-        setSuccess(" ")
-      },2000)
       setFormData({
         name: "",
         phone: "",
@@ -68,19 +67,21 @@ const Contact = () => {
         subject: "",
         message: "",
       });
-    } catch (error) {
-      console.error(error.response?.data || error.message);
+
+      setTimeout(() => setSuccess(""), 2000);
+
+    } catch (err) {
+      console.error(err.response?.data || err.message);
     } finally {
       setLoading(false);
     }
   };
 
+
+
   return (
     <div className="container mx-auto px-4 mt-10 flex justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-xl w-full flex flex-col gap-3"
-      >
+      <form onSubmit={handleSubmit} className="max-w-xl w-full flex flex-col gap-3">
         <h2 className="text-3xl font-bold">Connect With Me 🚀</h2>
 
         {["name", "phone", "email", "subject"].map((field) => (
@@ -98,29 +99,23 @@ const Contact = () => {
           </div>
         ))}
 
-        <div>
-          <textarea
-            id="message"
-            rows="4"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your message"
-            className={`border p-2 rounded-xl w-full ${classes.message}`}
-          />
-          {errors.message && (
-            <span className="text-red-500 text-sm">{errors.message}</span>
-          )}
-        </div>
+        <textarea
+          id="message"
+          rows="4"
+          value={formData.message}
+          onChange={handleChange}
+          placeholder="Your message"
+          className={`border p-2 rounded-xl w-full ${classes.message}`}
+        />
 
         <button
-          type="submit"
           disabled={loading}
-          className="bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600 transition"
+          className="bg-orange-500 text-white p-2 rounded-full hover:bg-orange-600"
         >
           {loading ? "Sending..." : "Send Message"}
         </button>
 
-        {success && <p className="text-green-600 mt-2">{success}</p>}
+        {success && <p className="text-green-600">{success}</p>}
       </form>
     </div>
   );

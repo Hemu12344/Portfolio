@@ -6,6 +6,12 @@ const MailModel = require("./DataBase/Mail");
 const app = express();
 
 
+const env = require('dotenv').config();
+const URI = process.env.MONGO_URI
+mongoose.connect(URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
 
 // ✅ Middlewares
 app.use(express.json());
@@ -39,17 +45,30 @@ app.use((req, res, next) => {
 
 
 
-// ✅ Routes
 app.post("/Check", async (req, res) => {
-  const { name, phone, email, subject, message } = req.body;
-  if (!name || !phone || !email || !subject || !message) {
-    return res.status(400).json({ message: "All fields are required" });
-  }
+  try {
+    const { name, phone, email, subject, message } = req.body;
 
-  const newMail = new MailModel({ name, phone, email, subject, message });
-  await newMail.save();
-  res.status(200).json({ success: true, message: "Form data received successfully" });
+    if (!name || !phone || !email || !subject || !message) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const newMail = new MailModel({ name, phone, email, subject, message });
+    const savedMail = await newMail.save();
+
+    console.log("Saved Mail:", savedMail); // ✅ console mai date & createdAt dikhna chahiye
+
+    res.status(200).json({ success: true, message: "Form data received successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
+
+
+
+
+
 
 app.get("/api/admin/contacts", async (req, res) => {
   try {

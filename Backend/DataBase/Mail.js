@@ -1,17 +1,16 @@
-const mongoose = require('mongoose');
-const env = require('dotenv').config();
-const URI=process.env.MONGO_URI
-mongoose.connect(URI||"mongodb+srv:HarshAgr:Harsh1234@blogsite.zrwnljt.mongodb.net/MailDB")
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+// DataBase/Mail.js
+const mongoose = require("mongoose");
 
+const mailSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
+    subject: { type: String, required: true },
+    message: { type: String, required: true },
+    date: { type: Date, default: Date.now } // optional, createdAt will also exist
+  },
+  { timestamps: true } // ✅ adds createdAt & updatedAt automatically
+);
 
-  const schema = mongoose.Schema({
-    name:String,
-    phone:String,
-    email:String,
-    subject:String,
-    message:String
-  });
-  
-  module.exports = mongoose.model('mail', schema);
+module.exports = mongoose.model("Mail2", mailSchema);

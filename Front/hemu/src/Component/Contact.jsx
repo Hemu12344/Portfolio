@@ -51,7 +51,7 @@ const Contact = () => {
       setLoading(true);
 
       const response = await axios.post(
-        `https://portfolio-backend-02h4.onrender.com/api/admin/contacts`||"http://localhost:5000/Check",
+        `https://portfolio-backend-02h4.onrender.com/Check`||"http://localhost:5000/Check",
         formData,
         { headers: { "Content-Type": "application/json" } }
       );

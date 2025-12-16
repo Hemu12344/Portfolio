@@ -58,7 +58,7 @@ app.post("/Check", async (req, res) => {
 
     console.log("Saved Mail:", savedMail); // ✅ console mai date & createdAt dikhna chahiye
 
-    res.status(200).json({ success: true, message: "Form data received successfully" });
+    res.status(200).json({ success: true, message: "Thank's For Contacting Me" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });

@@ -1,23 +1,23 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
+const MailModel = require("./DataBase/Mail");
 
-const mongoose =require("mongoose");
-
-const MailModel= require("./DataBase/Mail");
 const app = express();
+
+// Allowed origins
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://hemup.netlify.app",
+];
 
 // ✅ Middlewares
 app.use(express.json());
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://hemuP.netlify.app",
-];
-
+// ✅ CORS setup for all routes
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like Postman)
-    if (!origin) return callback(null, true);
+    if (!origin) return callback(null, true); // allow Postman / curl
 
     if (allowedOrigins.indexOf(origin) === -1) {
       const msg = `CORS policy does not allow access from origin ${origin}`;
@@ -29,31 +29,20 @@ app.use(cors({
   credentials: true,
 }));
 
-// ✅ Test route
-app.post("/Check",async (req, res) => {
+// Handle preflight OPTIONS requests
+app.options("*", cors());
+
+// ✅ Routes
+app.post("/Check", async (req, res) => {
   const { name, phone, email, subject, message } = req.body;
-
-
-  // Basic validation (backend safety)
   if (!name || !phone || !email || !subject || !message) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
-  console.log("Received data:", req.body);
-
-  const newMail=MailModel({
-    name:name, phone:phone, email:email, subject:subject, message:message
-  })
-
-  
+  const newMail = new MailModel({ name, phone, email, subject, message });
   await newMail.save();
-  res.status(200).json({
-    success: true,
-    message: "Form data received successfully",
-  });
-
+  res.status(200).json({ success: true, message: "Form data received successfully" });
 });
-
 
 app.get("/api/admin/contacts", async (req, res) => {
   try {
@@ -64,7 +53,7 @@ app.get("/api/admin/contacts", async (req, res) => {
   }
 });
 
-// ✅ Server start
+// ✅ Start server
 app.listen(5000, () => {
   console.log("🚀 Server running on http://localhost:5000");
 });

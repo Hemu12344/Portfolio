@@ -13,13 +13,21 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://hemuP.netlify.app",
 ];
-app.use(
-  cors({
-    origin:allowedOrigins,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `CORS policy does not allow access from origin ${origin}`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 
 // ✅ Test route
 app.post("/Check",async (req, res) => {

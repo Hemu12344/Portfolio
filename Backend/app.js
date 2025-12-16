@@ -12,7 +12,7 @@ app.use(express.json());
 // ✅ CORS (Vite frontend)
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin:"https://hemuP.netlify.app/admin"||"https://hemuP.netlify.app"||"http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

@@ -84,7 +84,7 @@ const Projects = () => {
       {/* Skills Section */}
       <section id="skill" className="py-24 px-4 md:px-20 lg:px-40">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100">Skills</h2>
+          <h2 className="text-4xl font-bold">Skills</h2>
           <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
           <p className="text-gray-500 dark:text-gray-300 mt-4 text-lg font-medium">
             A collection of my technical skills and expertise honed through various projects and experiences

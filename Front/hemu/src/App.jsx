@@ -1,17 +1,13 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home"; // move your current UI here
 import AdminContactDashboard from "./Component/Admin/admin";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public Website */}
-        <Route path="/" element={<Home />} />
-        {/* Admin Page (Hidden unless URL is used) */}
-        <Route path="/admin" element={<AdminContactDashboard />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/admin" element={<AdminContactDashboard />} />
+    </Routes>
   );
 }
 

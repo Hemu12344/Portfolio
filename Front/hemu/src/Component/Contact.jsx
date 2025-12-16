@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -52,7 +51,7 @@ const Contact = () => {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/Check",
+        `${import.meta.env.VITE_API_URL}`||"http://localhost:5000/Check",
         formData,
         { headers: { "Content-Type": "application/json" } }
       );

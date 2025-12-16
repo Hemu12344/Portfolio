@@ -20,7 +20,7 @@ export default function AdminContactDashboard() {
     const fetchContacts = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/api/admin/contacts"
+          `${import.meta.env.VITE_API_URL}/api/admin/contacts`||"http://localhost:5000/api/admin/contacts"
         );
         setContacts(res.data);
         setFiltered(res.data);

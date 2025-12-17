@@ -15,7 +15,6 @@ export default function AdminContactDashboard() {
   const [filtered, setFiltered] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-
   useEffect(() => {
     const fetchContacts = async () => {
       try {

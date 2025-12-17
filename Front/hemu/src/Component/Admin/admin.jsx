@@ -148,7 +148,7 @@ export default function AdminContactDashboard() {
               <tbody>
                 {visitors.map((v) => {
                   const isAdmin =
-                    v.userAgent.includes("106.223.179.212")
+                    v.ip.includes("106.223.179.212")
 
                   return (
                     <tr key={v._id} className="border-t border-white/10">

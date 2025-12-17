@@ -155,13 +155,14 @@ export default function AdminContactDashboard() {
                     <tr key={v._id} className="border-t border-white/10">
                       <td className="p-3">{v.ip}</td>
                       <td className="p-3">{v.page}</td>
-                      <td className="p-3">{v.visitCount}</td>
                       <td className="p-3">
                         {new Intl.DateTimeFormat("en-GB", {
                           dateStyle: "medium",
                           timeStyle: "short",
                         }).format(new Date(v.createdAt))}
                       </td>
+                      <td className="p-3">{v.visitCount}</td>
+
                       <td className="p-3 font-medium">
                         {isAdmin ? (
                           "Admin"

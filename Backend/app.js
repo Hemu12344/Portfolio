@@ -70,7 +70,7 @@ app.post("/Check", async (req, res) => {
 
 
 
-app.get("contacts", async (req, res) => {
+app.get("/contacts", async (req, res) => {
   try {
     const contacts = await MailModel.find().sort({ createdAt: -1 });
     res.json(contacts);

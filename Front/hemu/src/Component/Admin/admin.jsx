@@ -9,7 +9,7 @@ import {
   Search,
   Inbox,
 } from "lucide-react";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function AdminContactDashboard() {
   const [contacts, setContacts] = useState([]);
   const [filtered, setFiltered] = useState([]);
@@ -20,7 +20,7 @@ export default function AdminContactDashboard() {
     const fetchContacts = async () => {
       try {
         const res = await axios.get(
-          `https://portfolio-backend-02h4.onrender.com/contacts`||"http://localhost:5000/contacts"
+          `${API_URL}/contacts`
         );
         setContacts(res.data);
         setFiltered(res.data);

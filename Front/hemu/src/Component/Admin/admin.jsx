@@ -141,6 +141,7 @@ export default function AdminContactDashboard() {
                   <th className="p-3 text-left">IP</th>
                   <th className="p-3">Page</th>
                   <th className="p-3">Visited</th>
+                  <th className="p-3">Visit Count</th>
                   <th className="p-3">Status</th>
                   <th className="p-3">Action</th>
                 </tr>
@@ -154,6 +155,7 @@ export default function AdminContactDashboard() {
                     <tr key={v._id} className="border-t border-white/10">
                       <td className="p-3">{v.ip}</td>
                       <td className="p-3">{v.page}</td>
+                      <td className="p-3">{v.visitCount}</td>
                       <td className="p-3">
                         {new Intl.DateTimeFormat("en-GB", {
                           dateStyle: "medium",

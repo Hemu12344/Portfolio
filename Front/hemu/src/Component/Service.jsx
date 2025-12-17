@@ -11,11 +11,11 @@ const Services=()=>{
       title: "Website Design and Development",
       desc: "Custom website design and development tailored to your brand and business needs."
     },
-    {
-      logo: <AnalyticsIcon/>,
-      title: "User Research and Analysis",
-      desc: "Conduct user research to understand your target audience, their needs, and behaviors."
-    },
+    // {
+    //   logo: <AnalyticsIcon/>,
+    //   title: "User Research and Analysis",
+    //   desc: "Conduct user research to understand your target audience, their needs, and behaviors."
+    // },
     {
       logo: <SignalIcon/>,
       title: "UI/UX Design",

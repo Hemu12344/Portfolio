@@ -10,42 +10,36 @@ import Ques from "./Component/Questions";
 import Contact from "./Component/Contact";
 import Footer from "./Component/Footer";
 import Hero from "./Component/Hero";
-import Experience from "./Component/Exprience";
 import Eduction from "./Component/Edu";
+
 function Home() {
   const { theme } = useContext(ThemeContext);
+
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const lastScrollY = useRef(0); // persist scroll position
 
-  // Set theme colors
+  const lastScrollY = useRef(0);
+
+  // Theme handling
   useEffect(() => {
-    document.body.style.backgroundColor = theme === "dark" ? "#111" : "#f5f5f5";
+    document.body.style.backgroundColor =
+      theme === "dark" ? "#111" : "#f5f5f5";
     document.body.style.color = theme === "dark" ? "#fff" : "#000";
   }, [theme]);
 
-  // Back to top button
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 500) setShowTopBtn(true);
-      else setShowTopBtn(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Show/hide header on scroll up/down
+  // Scroll handling (Header + Top button)
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (currentScrollY>400) {
-        // Scrolling down
-        setShowHeader(false);
-      }
-      else {
-        // Scrolling up
-        setShowHeader(true);
+      // Back to top button
+      setShowTopBtn(currentScrollY > 500);
+
+      // Header hide/show
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setShowHeader(false); // scrolling down
+      } else {
+        setShowHeader(true); // scrolling up
       }
 
       lastScrollY.current = currentScrollY;
@@ -54,7 +48,6 @@ function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
 
   return (
     <>
@@ -70,88 +63,82 @@ function Home() {
               width="20"
               height="20"
               fill="currentColor"
-              className="bi bi-caret-up-fill"
               viewBox="0 0 16 16"
             >
-              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"></path>
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
             </svg>
           </button>
         </div>
       )}
 
       {/* Header */}
-      {showHeader && <Header />}
-
-      <Hero/>
-
-      {/* PROJECTS SECTION */}
-      <section
-        id="projects"
-        className={`${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20 rounded-3xl`}
+      <div
+        className={`fixed top-0 w-full z-40 transition-transform duration-300 ${
+          showHeader ? "translate-y-0" : "-translate-y-full"
+        }`}
       >
-        <Projects />
-      </section>
+        <Header />
+      </div>
 
-      {/* Exprence */}
-       {/* <section
-        id="Met"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
-      >
-        <Experience/>
-      </section> */}
+      {/* Page Content */}
+      <div className="pt-20">
+        <Hero />
 
-      {/* Eductioin */}
-      <section
-        id="Met"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
-      >
-        <Eduction/>
-      </section>
-      {/* SERVICES SECTION */}
-      <section
-        id="services"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-1`}
-      >
-        <Services />
-      </section>
+        <section
+          id="projects"
+          className={`${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20 rounded-3xl`}
+        >
+          <Projects />
+        </section>
 
-      {/* TESTIMONIAL SECTION */}
-      <section
-        className={`mt-10 rounded-full ${
-          theme === "dark" ? "dark:bg-gray-800" : "bg-white"
-        } py-25 relative`}
-      >
-        <Testimonial />
-      </section>
+        <section
+          className={`${theme === "dark" ? "text-white" : "bg-white text-black"} py-20`}
+        >
+          <Eduction />
+        </section>
 
-      {/* PROJECT METRIX */}
-      <section
-        id="Met"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
-      >
-        <ProjectMet />
-      </section>
+        <section
+          id="services"
+          className={`${theme === "dark" ? "text-white" : "bg-white"} py-1`}
+        >
+          <Services />
+        </section>
 
-      {/* QUESTIONS */}
-      <section
-        id="services"
-        className={`rounded-3xl ${theme === "dark" ? "dark:bg-gray-800" : "bg-white"} py-20`}
-      >
-        <Ques />
-      </section>
+        <section
+          className={`mt-10 rounded-full ${
+            theme === "dark" ? "dark:bg-gray-800" : "bg-white"
+          } py-25`}
+        >
+          <Testimonial />
+        </section>
 
-      {/* CONTACT */}
-      <section
-        id="contact"
-        className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
-      >
-        <Contact />
-      </section>
+        <section
+          className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+        >
+          <ProjectMet />
+        </section>
 
-      {/* FOOTER */}
-      <section className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}>
-        <Footer />
-      </section>
+        <section
+          className={`rounded-3xl ${
+            theme === "dark" ? "dark:bg-gray-800" : "bg-white"
+          } py-20`}
+        >
+          <Ques />
+        </section>
+
+        <section
+          id="contact"
+          className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+        >
+          <Contact />
+        </section>
+
+        <section
+          className={`${theme === "dark" ? "text-white" : "bg-white"} py-20`}
+        >
+          <Footer />
+        </section>
+      </div>
     </>
   );
 }

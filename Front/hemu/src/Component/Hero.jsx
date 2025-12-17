@@ -69,7 +69,7 @@ const Hero = () => {
                 </div>
 
                 {/* Company Logos */}
-                <div className="flex-col mt-20 overflow-hidden relative">
+                {/* <div className="flex-col mt-20 overflow-hidden relative">
                     <h1 className="font-bold text-center text-lg md:text-xl mb-8">
                         Trusted by the world’s most innovative teams at
                     </h1>
@@ -85,7 +85,7 @@ const Hero = () => {
                             />
                         ))}
                     </div>
-                </div>
+                </div> */}
             </main>
         </>
     )

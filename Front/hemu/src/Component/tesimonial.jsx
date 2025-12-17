@@ -11,7 +11,7 @@ const Testimonial = () => {
     {
       logo: "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo1-dark.png",
       feedback:
-        "“Working with Ethan felt like teaming up with someone who truly understands users. The designs weren’t just beautiful—they solved problems before they even appeared.”",
+        "“Working with Hemant Dixit like teaming up with someone who truly understands users. The designs weren’t just beautiful—they solved problems before they even appeared.”",
       userPic:
         "https://tigmatemplate.me/uxoria/assets/img/clients-photoshoot/small/member1.jpg",
       userName: "Michael Turner",
@@ -20,7 +20,7 @@ const Testimonial = () => {
     {
       logo: "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo2-dark.png",
       feedback:
-        "“I’ve collaborated with many designers, but Ethan’s attention to structure and flow stood out. The UX choices felt intuitive and elevated the whole user experience.”",
+        "“I’ve collaborated with many designers, but Hemant dixit attention to structure and flow stood out. The UX choices felt intuitive and elevated the whole user experience.”",
       userPic:
         "https://tigmatemplate.me/uxoria/assets/img/clients-photoshoot/small/member2.jpg",
       userName: "Amanda Foster",
@@ -29,7 +29,7 @@ const Testimonial = () => {
     {
       logo: "https://tigmatemplate.me/uxoria/assets/img/clients-logos/logo3-dark.png",
       feedback:
-        "“Ethan’s workflow made our entire build process smoother and more scalable. From concept to code, every decision was thoughtful and tailored to our brand.”",
+        "“Hemant dixit workflow made our entire build process smoother and more scalable. From concept to code, every decision was thoughtful and tailored to our brand.”",
       userPic:
         "https://tigmatemplate.me/uxoria/assets/img/clients-photoshoot/small/member3.jpg",
       userName: "Jonathan Blake",

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "../Context/context";
-import { Menu, X } from "lucide-react"; // Menu (☰) & X (✖) icons
+import { Menu, X } from "lucide-react"; 
 
 export const Header = () => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -23,21 +23,21 @@ export const Header = () => {
           <a href="#home" onClick={() => setHam(false)} className="text-lg font-medium">
             Home
           </a>
-          <a href="#about" onClick={() => setHam(false)} className="text-lg font-medium">
+          {/* <a href="/" onClick={() => setHam(false)} className="text-lg font-medium">
             About
-          </a>
+          </a> */}
           <a href="#skill" onClick={() => setHam(false)} className="text-lg font-medium">
             Skill
           </a>
           <a href="#project" onClick={() => setHam(false)} className="text-lg font-medium">
             Project
           </a>
-          <a href="#edu" onClick={() => setHam(false)} className="text-lg font-medium">
+          <a href="#edu" onClick={() => setHam(false)} className="text-lg font-medium ">
             Eduction
           </a>
-          <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
+          {/* <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
             Exprience
-          </a>
+          </a> */}
           <a href="#service" onClick={() => setHam(false)} className="text-lg font-medium">
             Services
           </a>
@@ -107,9 +107,9 @@ export const Header = () => {
         <a href="#home" onClick={() => setHam(false)} className="text-lg font-medium">
           Home
         </a>
-        <a href="#about" onClick={() => setHam(false)} className="text-lg font-medium">
+        {/* <a href="/" onClick={() => setHam(false)} className="text-lg font-medium">
           About
-        </a>
+        </a> */}
         <a href="#skill" onClick={() => setHam(false)} className="text-lg font-medium">
           Skill
         </a>
@@ -119,9 +119,9 @@ export const Header = () => {
         <a href="#edu" onClick={() => setHam(false)} className="text-lg font-medium">
           Eduction
         </a>
-        <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
+        {/* <a href="#exp" onClick={() => setHam(false)} className="text-lg font-medium">
           Exprience
-        </a>
+        </a> */}
         <a href="#service" onClick={() => setHam(false)} className="text-lg font-medium">
           Services
         </a>

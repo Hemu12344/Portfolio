@@ -7,7 +7,7 @@ const ProjectMet = () => {
 
     const ProjectMet = [
         {
-            value: "150+",
+            value: "10+",
             title: "Projects Delivered",
         },
         {

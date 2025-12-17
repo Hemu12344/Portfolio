@@ -14,14 +14,14 @@ const Ques = () => {
             value: "How do you approach UX design for new clients?",
             title: "Ethan begins with research, user personas, wireframes, and strategic design mapping sessions to ensure the final result is intuitive.",
         },
-        {
-            value: "Can you customize existing themes or templates?",
-            title: "Absolutely. Ethan retools themes with unique layouts, animations, modular content, accessibility features, SEO enhancements, and brand strategy alignment.",
-        },
-        {
-            value: "What’s your process for launching a finished site?",
-            title: "Ethan handles QA testing, SEO setup, integrations, analytics, security checks, browser compatibility, mobile responsiveness, backup systems, and post-launch performance review.",
-        }
+        // {
+        //     value: "Can you customize existing themes or templates?",
+        //     title: "Absolutely. Ethan retools themes with unique layouts, animations, modular content, accessibility features, SEO enhancements, and brand strategy alignment.",
+        // },
+        // {
+        //     value: "What’s your process for launching a finished site?",
+        //     title: "Ethan handles QA testing, SEO setup, integrations, analytics, security checks, browser compatibility, mobile responsiveness, backup systems, and post-launch performance review.",
+        // }
 
     ]
     return (

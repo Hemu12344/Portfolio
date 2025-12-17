@@ -20,7 +20,7 @@ export default function AdminContactDashboard() {
     const fetchContacts = async () => {
       try {
         const res = await axios.get(
-          `https://portfolio-backend-02h4.onrender.comcontacts`||"http://localhost:5000/contacts"
+          `https://portfolio-backend-02h4.onrender.com/contacts`||"http://localhost:5000/contacts"
         );
         setContacts(res.data);
         setFiltered(res.data);
